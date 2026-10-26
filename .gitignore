@@ -1,0 +1,7 @@
+target/
+.vscode/
+.idea/
+*.iml
+.DS_Store
+# local logs written by the VS Code Java upgrade extension
+.github/modernize/
