@@ -5,6 +5,7 @@ import dev.deletejava.switches.Zone;
 /** A switch statement: a variable to assign, a break per case, and a default "just in case". */
 public final class Delivery {
 
+    // Returns the delivery time in days for a zone.
     public static int days(Zone zone) {
         int days;
         switch (zone) {

@@ -9,6 +9,7 @@ import java.util.Map;
 /// `case Number _, Boolean _` groups types without binding a name (Java 22).
 public final class JsonWriter {
 
+    // Serializes supported Java values as JSON.
     public static String write(Object value) {
         return switch (value) {
             case null -> "null";
@@ -22,6 +23,7 @@ public final class JsonWriter {
         };
     }
 
+    // Escapes a string and surrounds it with JSON quotes.
     private static String quote(String s) {
         return "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\"";
     }

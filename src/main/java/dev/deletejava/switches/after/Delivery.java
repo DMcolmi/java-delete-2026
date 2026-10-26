@@ -6,6 +6,7 @@ import dev.deletejava.switches.Zone;
 /// It's exhaustive over the enum: add a zone and this stops compiling.
 public final class Delivery {
 
+    // Returns the delivery time in days for a zone.
     public static int days(Zone zone) {
         return switch (zone) {
             case LOCAL -> 1;

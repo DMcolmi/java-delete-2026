@@ -4,6 +4,7 @@ package dev.deletejava.textblocks.after;
 /// Indentation is stripped relative to the closing `"""`, and `formatted()` fills in the values.
 public final class Templates {
 
+    // Returns a SQL query that selects overdue invoices.
     public static String overdueInvoicesSql() {
         return """
                 SELECT i.id, i.total, c.email
@@ -15,6 +16,7 @@ public final class Templates {
                 """;
     }
 
+    // Builds a JSON welcome message for a user.
     public static String welcomeJson(String name, String email) {
         return """
                 {

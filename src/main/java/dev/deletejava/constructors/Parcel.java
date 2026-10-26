@@ -10,6 +10,8 @@ public class Parcel {
         this.weightKg = weightKg;
     }
 
+    // Returns this parcel's tracking code.
     public String trackingCode() { return trackingCode; }
+    // Returns this parcel's weight in kilograms.
     public double weightKg() { return weightKg; }
 }

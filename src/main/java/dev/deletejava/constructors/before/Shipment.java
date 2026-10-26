@@ -9,6 +9,7 @@ public class Shipment extends Parcel {
         super(normalize(trackingCode), checkWeight(weightKg));
     }
 
+    // Trims and uppercases a tracking code after validating it.
     private static String normalize(String trackingCode) {
         if (trackingCode == null || trackingCode.isBlank()) {
             throw new IllegalArgumentException("tracking code is required");
@@ -16,6 +17,7 @@ public class Shipment extends Parcel {
         return trackingCode.strip().toUpperCase();
     }
 
+    // Validates a shipment weight and returns it unchanged.
     private static double checkWeight(double weightKg) {
         if (weightKg <= 0 || weightKg > 30) {
             throw new IllegalArgumentException("weight must be in (0, 30] kg");

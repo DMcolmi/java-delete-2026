@@ -6,6 +6,7 @@ import java.util.Map;
 /** A chain of instanceof checks, each followed by a cast to the type we just checked. */
 public final class JsonWriter {
 
+    // Serializes supported Java values as JSON.
     public static String write(Object value) {
         if (value == null) {
             return "null";
@@ -44,6 +45,7 @@ public final class JsonWriter {
         throw new IllegalArgumentException("unsupported type: " + value.getClass().getName());
     }
 
+    // Escapes a string and surrounds it with JSON quotes.
     private static String quote(String s) {
         return "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\"";
     }
