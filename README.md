@@ -7,14 +7,6 @@ The `after` packages use the JDK alone: no Lombok, Guava, Commons Lang, Commons 
 Each test runs **both** versions and asserts that they behave the same, so the deletion is safe.
 Where the `before` code is actually broken, the test proves that too.
 
-## The headliners
-
-- **Virtual threads:** 1,000 blocking calls take ~2 s on a 50-thread pool and ~100 ms on virtual threads.
-- **`SimpleDateFormat`:** a shared formatter got **a third to over four fifths of 10,000** concurrent calls wrong in our runs, almost always silently. `java.time`: zero. The same `Date` code also counts 28 → 30 March 2026 as **one** day, because of daylight saving time.
-- **Old JVM flags:** `-XX:+UseConcMarkSweepGC`, `-XX:MaxPermSize`, `-XX:+UseBiasedLocking` and friends stop the JVM from starting. `-XX:+ZGenerational` only warns on JDK 25, but on JDK 27 the JVM refuses to start. `JvmFlagsTest` checks all of them.
-- **For free:** an AOT cache takes startup from ~225 ms to ~140 ms (−38%), and compact object headers take 10 M small objects from 272 MB to 196 MB of heap (−28%). Neither needs a code change.
-- **Structured concurrency (JDK 27 preview):** with `CompletableFuture` a failing call still waits for the slow one. With `StructuredTaskScope` it fails fast and interrupts the rest.
-
 ## Java 25 LTS: delete it today
 
 Ordered as in the article, from search-and-replace to design and concurrency.
