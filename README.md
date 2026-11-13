@@ -1,6 +1,6 @@
 # What you can delete from your Java code in 2026
 
-Companion repo for the article *"What You Can Delete from Your Java Code in 2026"*.
+Companion repo for the article *"The Best PR Has More Red Than Green: A 1-to-1 Journey to Deleting My Dusty Java Habits"*.
 
 Every topic has a `before` package (the code we all still have) and an `after` package (the same thing on Java 25 LTS).
 The `after` packages use the JDK alone: no Lombok, Guava, Commons Lang, Commons IO or Apache HttpClient.
